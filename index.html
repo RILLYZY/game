@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">      
+<head>      
+  <meta charset="utf-8" />      
+  <meta name="viewport" content="width=device-width, initial-scale=1" />      
+  <title>GetX4Su - RilzX7</title>      
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">      
+  <style>      
+    :root {      
+      --bg:#090909;      
+      --card-bg:#121212;
+      --muted:#a6a6a6;      
+      --accent:#00d4ff;      
+      --red-accent:#ff4d4d;
+    }  
+
+    * {      
+      box-sizing:border-box;      
+      margin:0;      
+      padding:0;      
+    }    
+
+    html, body {  
+      font-family:"Poppins", sans-serif;  
+      background:var(--bg);  
+      color:#fff;  
+      display:flex;  
+      flex-direction:column;  
+      align-items:center;  
+      padding:40px 15px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .avatar {
+      width:100px;
+      height:100px;
+      border-radius:50%;
+      overflow:hidden;
+      border:2px solid var(--accent);
+      margin: 0 auto 15px;
+    }
+
+    .avatar img { width:100%; height:100%; object-fit:cover; }
+
+    h1 { font-size:24px; margin-bottom:5px; }
+    .product-title { color: var(--accent); font-weight: 700; margin-bottom: 20px; display: block;}
+
+    h2 { font-size: 20px; margin: 25px 0 15px; text-align: left; }
+    
+    .feature-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 15px;
+      border: 1px solid #222;
+      text-align: left;
+    }
+
+    .feature-card i {
+      color: var(--red-accent);
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* CAROUSEL FIXED UNTUK FOTO MEMANJANG */
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .carousel-container {
+      width: 100%;
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 15px;
+      scrollbar-width: none; 
+      -ms-overflow-style: none;
+    }
+
+    .carousel-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-item {
+      min-width: 100%; /* Menampilkan 1 foto full */
+      scroll-snap-align: center;
+      background: var(--card-bg);
+      border-radius: 15px;
+      border: 1px solid #222;
+      overflow: hidden;
+      /* Menggunakan rasio portrait agar foto memanjang tidak terpotong */
+      aspect-ratio: 9/16; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Foto terlihat utuh tanpa terpotong */
+      background: #000;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 5px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #333;
+      border-radius: 50%;
+    }
+
+    .price-box {
+      background: linear-gradient(145deg, #1a1a1a, #121212);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 25px 0;
+      border: 1px dashed var(--accent);
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .price-item span:last-child {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: 0.3s;
+    }
+
+    .btn-video {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-contact {
+      border: 1px solid #333;
+      color: #fff;
+      background: transparent;
+    }
+
+    .btn-contact:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    footer {
+      margin-top: 50px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>      
+</head>      
+<body>
+
+<div class="container">
+  <header class="fade-in" style="animation-delay: 0.1s;">
+    <div class="avatar">
+      <img src="https://github.com/RILLYZY.png" alt="RilzX7">
+    </div>
+    <h1>RilzX7</h1>
+    <span class="product-title">GetX4Su Script Premium 🦠</span>
+    <p style="color: var(--muted); font-size: 14px;">Script ini dibekali dengan beberapa fitur Bug Crash tingkat tinggi.</p>
+  </header>
+
+  <h2 class="fade-in" style="animation-delay: 0.2s;">Features</h2>
+
+  <div class="feature-card fade-in" style="animation-delay: 0.3s;">
+    <i class="fas fa-bug"></i>
+    <h3>Crash Flood Call</h3>
+    <p>Mengirim bug call kepada client dengan invisible membuat client crash tanpa tau siapa pengirimnya.</p>
+  </div>
+
+  <div class="feature-card fade-in" style="animation-delay: 0.4s;">
+    <i class="fas fa-infinity"></i>
+    <h3>Crash Infinity / One Msg</h3>
+    <p>Mengirim bug satu pesan yang memicu crash berulang/infinity dengan auto resend bug.</p>
+  </div>
+
+  <div class="feature-card fade-in" style="animation-delay: 0.5s;">
+    <i class="fab fa-apple"></i>
+    <h3>Crash iOS Invisible</h3>
+    <p>Mengirim bug kepada client ios/iPhone yg menyebabkan crash Invisible .</p>
+  </div>
+
+  <div class="feature-card fade-in" style="animation-delay: 0.6s;">
+    <i class="fas fa-hourglass-half"></i>
+    <h3>Delay Bvg</h3>
+    <p>Efek delay yang menghambat pengiriman pesan pada WhatsApp client tanpa membuatnya crash.</p>
+  </div>
+
+  <h2 class="fade-in" style="animation-delay: 0.65s;">Preview</h2>
+  <div class="carousel-wrapper fade-in" style="animation-delay: 0.7s;">
+    <div class="carousel-container">
+      <div class="carousel-item"><img src="https://pomf2.lain.la/f/e53b8nk2.jpg" alt="P1"></div>
+      <div class="carousel-item"><img src="https://pomf2.lain.la/f/b3q8tf6.jpg" alt="P2"></div>
+      <div class="carousel-item"><img src="https://pomf2.lain.la/f/5ukwn1ny.jpg" alt="P3"></div>
+    </div>
+    <div class="carousel-dots">
+      <div class="dot" style="background: var(--accent);"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <div class="price-box fade-in" style="animation-delay: 0.8s;">
+    <div class="price-item">
+      <span>Price Sc:</span>
+      <span>Rp.15.000</span>
+    </div>
+    <div class="price-item">
+      <span>Reseller: </span>
+      <span>Rp.45.000</span>
+    </div>
+  </div>
+
+  <h2 class="fade-in" style="animation-delay: 0.85s;">Contact Me To buy</h2>
+  <div class="btn-group fade-in" style="animation-delay: 0.9s;">
+    <a href="https://pomf2.lain.la/f/frzpblxp.mp4" class="btn btn-video">
+      <i class="fas fa-play-circle"></i>Effect Bvg
+    </a>
+    <div class="btn-row">
+      <a href="https://t.me/Rilyzyishere" class="btn btn-contact">
+        <i class="fab fa-telegram"></i>Telegram
+      </a>
+      <a href="https://wa.me/6285709448001" class="btn btn-contact">
+        <i class="fab fa-whatsapp"></i>WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <footer class="fade-in" style="animation-delay: 1s;">
+    © 2025 RilzX7 — All rights reserved.
+  </footer>
+</div>
+
+</body>      
+    </html>
+    
